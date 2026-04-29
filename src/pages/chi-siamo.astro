@@ -1,0 +1,98 @@
+---
+import Layout from '../layouts/Layout.astro';
+import cs from '../data/chi-siamo.json';
+---
+
+<Layout
+  title="Chi Siamo"
+  description="Aedilia Costruzioni opera nelle province di Caserta e Napoli. Pavimentazioni, infrastrutture TLC, reti idriche e segnaletica in tutta la Campania."
+>
+
+  <!-- HERO MINI -->
+  <section class="w-full pt-24 md:pt-40 pb-20 px-8 md:px-24 bg-[#F5EFE2]">
+    <div class="max-w-7xl mx-auto">
+      <p class="text-xs font-medium tracking-[0.3em] uppercase text-[#B89B5E] mb-4">Chi siamo</p>
+      <h1 data-aos="fade-up" class="text-4xl md:text-6xl font-light text-[#0D0D0D] leading-tight">
+        Costruiamo il territorio<br>
+        <span class="font-normal italic">da oltre 40 anni.</span>
+      </h1>
+    </div>
+  </section>
+
+  <!-- INTRO TESTO + FOTO -->
+  <section class="w-full py-12 md:py-24 px-8 md:px-24 bg-white">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-20 items-center">
+      <div>
+        <p data-aos="fade-up" data-aos-delay="100" class="text-sm font-light text-gray-500 leading-relaxed mb-6">{cs.intro1}</p>
+        <p data-aos="fade-up" data-aos-delay="100" class="text-sm font-light text-gray-500 leading-relaxed mb-6">{cs.intro2}</p>
+        <p class="text-sm font-light text-gray-500 leading-relaxed">{cs.intro3}</p>
+      </div>
+      <div class="relative">
+        <img data-aos="fade-left" data-aos-delay="200" src="/images/gallery-03.jpg" alt="Squadra Aedilia Costruzioni"
+             class="w-full h-[500px] object-cover">
+        <div class="absolute -bottom-6 -left-6 bg-[#C9B98A] w-32 h-32 -z-10"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NUMERI -->
+  <section class="w-full py-10 md:py-20 px-8 md:px-24 bg-[#F8F6F1] border-y border-gray-100">
+    <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
+      <div data-aos="fade-up" data-aos-delay="0" class="flex flex-col items-center gap-2">
+        <span class="text-5xl font-light text-gray-900">{cs.anni}</span>
+        <span class="text-xs font-medium tracking-widest uppercase text-gray-400">Anni di attività</span>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="100" class="flex flex-col items-center gap-2">
+        <span class="text-5xl font-light text-gray-900">{cs.cantieri}</span>
+        <span class="text-xs font-medium tracking-widest uppercase text-gray-400">Cantieri completati</span>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="200" class="flex flex-col items-center gap-2">
+        <span class="text-5xl font-light text-gray-900">2</span>
+        <span class="text-xs font-medium tracking-widest uppercase text-gray-400">Province principali</span>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="300" class="flex flex-col items-center gap-2">
+        <span class="text-5xl font-light text-gray-900">6</span>
+        <span class="text-xs font-medium tracking-widest uppercase text-gray-400">Servizi specializzati</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALORI -->
+  <section class="w-full py-12 md:py-24 px-8 md:px-24 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-8 md:mb-16">
+        <p class="text-xs font-medium tracking-[0.3em] uppercase text-[#C9B98A] mb-4">Il nostro approccio</p>
+        <h2 class="text-2xl md:text-4xl font-light text-gray-900 leading-snug">
+          Tre principi che guidano<br>
+          <span class="font-normal">ogni nostro cantiere.</span>
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        {[
+          ['01','Qualità senza compromessi','Utilizziamo materiali certificati e seguiamo le normative vigenti in ogni fase del lavoro, dalla progettazione al collaudo finale.'],
+          ['02','Puntualità e rispetto dei tempi','Ogni cantiere è pianificato con cura. I tempi concordati con il committente sono un impegno, non una stima.'],
+          ['03','Rapporto diretto con il cliente','Nessun intermediario. I titolari seguono personalmente ogni commessa, garantendo comunicazione chiara e reattività immediata.'],
+        ].map(([n, t, d], i) => (
+          <div data-aos="fade-up" data-aos-delay={String(i * 150)} class="bg-white p-10 flex flex-col gap-4">
+            <span class="text-4xl font-light text-[#C9B98A]">{n}</span>
+            <h3 class="text-base font-medium text-gray-900">{t}</h3>
+            <p class="text-sm font-light text-gray-500 leading-relaxed">{d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="w-full py-12 md:py-24 px-8 md:px-24 bg-[#F5EFE2]">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-2xl md:text-4xl font-light text-[#0D0D0D] leading-snug mb-8">
+        Hai un progetto da realizzare?
+      </h2>
+      <a href="/contatti" class="inline-block bg-[#B89B5E] text-white text-xs font-medium tracking-widest uppercase px-10 py-5 hover:bg-[#a98c52] transition-all duration-300">
+        Richiedi un preventivo gratuito
+      </a>
+    </div>
+  </section>
+
+</Layout>

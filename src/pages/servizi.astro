@@ -1,0 +1,132 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const servizi = [
+  {
+    num: '01', id: 'asfalto',
+    title: 'Pavimentazioni', subtitle: 'in Asfalto',
+    img: '/images/gallery-01.jpg', alt: 'Pavimentazione asfalto',
+    p1: 'Realizziamo pavimentazioni in asfalto normale e stampato per strade comunali, piazzali industriali, parcheggi privati, accessi carrabili e aree residenziali. Interveniamo sia per conto di enti pubblici che per committenti privati.',
+    p2: "L'asfalto stampato consente finiture estetiche di alto livello, con pattern personalizzabili adatti a ville, centri commerciali e spazi urbani di pregio. Ogni posa è eseguita con macchine proprie e personale certificato.",
+    imgLeft: false,
+  },
+  {
+    num: '02', id: 'tlc',
+    title: 'Infrastrutture', subtitle: 'TLC',
+    img: '/images/fibra.png', alt: 'Infrastrutture TLC',
+    p1: 'Realizziamo scavi e posa di cavidotti per reti di telecomunicazione su scala urbana e stradale. Gestiamo l\'intero ciclo: progettazione del tracciato, scavo, posa tubazioni, ripristino del manto stradale e collaudo finale.',
+    p2: 'Operiamo in sinergia con operatori TLC, comuni e gestori di infrastrutture di rete, garantendo tempi certi e qualità certificata su ogni tratto realizzato.',
+    imgLeft: true,
+  },
+  {
+    num: '03', id: 'acquedotto',
+    title: 'Acquedotto, Fognature', subtitle: 'e Cavidotti',
+    img: '/images/reteidrica.png', alt: 'Acquedotto e fognature',
+    p1: 'Progettiamo e realizziamo reti idriche, fognarie e cavidotti interrati per uso civile e industriale. Eseguiamo scavi tecnici profondi con ripristini a regola d\'arte, minimizzando i disagi per la viabilità e le utenze.',
+    p2: 'Lavoriamo per comuni, consorzi idrici, aziende e privati su tutto il territorio campano, con mezzi propri e team specializzati nelle lavorazioni in trincea.',
+    imgLeft: false,
+  },
+  {
+    num: '04', id: 'arredo',
+    title: 'Manutenzione', subtitle: 'Arredo Urbano',
+    img: '/images/panchine.png', alt: 'Arredo urbano',
+    p1: 'Installiamo e manuteniamo elementi di arredo urbano per conto di enti pubblici e privati: panchine, fioriere, cestini, barriere, guard rail, paletti e delimitatori di spazio pubblico.',
+    p2: 'Interveniamo con rapidità per sostituzioni urgenti, manutenzioni programmate e nuove installazioni, nel pieno rispetto delle normative del Codice della Strada.',
+    imgLeft: true,
+  },
+  {
+    num: '05', id: 'segnaletica',
+    title: 'Segnaletica', subtitle: 'Non Luminosa',
+    img: '/images/gallery-05.jpg', alt: 'Segnaletica stradale',
+    p1: 'Forniamo e installiamo segnaletica stradale verticale e orizzontale certificata per comuni, province, enti stradali e operatori privati. Eseguiamo tracciature, zebrature, frecce direzionali e simboli su asfalto.',
+    p2: 'La segnaletica verticale include cartelli stradali, segnali di pericolo, obbligo, divieto e indicazione, montati su pali omologati conformi al D.Lgs. 285/1992.',
+    imgLeft: false,
+  },
+  {
+    num: '06', id: 'strade',
+    title: 'Manutenzione', subtitle: 'Strade',
+    img: '/images/gallery-06.jpg', alt: 'Manutenzione strade',
+    p1: 'Eseguiamo manutenzione ordinaria e straordinaria su strade comunali e provinciali: rappezzi di buche, rifacimenti parziali e totali del manto stradale, drenaggi superficiali e interventi su cunette e scarpate.',
+    p2: 'Disponibili per interventi urgenti su chiamata e per contratti di manutenzione programmata con enti pubblici e consorzi stradali in tutta la Campania.',
+    imgLeft: true,
+  },
+];
+---
+
+<Layout
+  title="Servizi"
+  description="Pavimentazioni in asfalto, infrastrutture TLC, acquedotto, fognature, segnaletica e manutenzione strade in Campania. Scopri tutti i servizi di Aedilia Costruzioni."
+>
+
+  <!-- HERO MINI -->
+  <section class="w-full pt-24 md:pt-40 pb-20 px-8 md:px-24 bg-[#F5EFE2]">
+    <div class="max-w-7xl mx-auto">
+      <p class="text-xs font-medium tracking-[0.3em] uppercase text-[#B89B5E] mb-4">Cosa facciamo</p>
+      <h1 class="text-4xl md:text-6xl font-light text-[#0D0D0D] leading-tight">
+        Servizi specializzati<br>
+        <span class="font-normal italic">per ogni infrastruttura.</span>
+      </h1>
+    </div>
+  </section>
+
+  {servizi.map((s, i) => (
+    <>
+      <section class="w-full py-12 md:py-24 px-8 md:px-24 bg-white" id={s.id}>
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-20 items-center">
+          {s.imgLeft ? (
+            <>
+              <div data-aos="fade-right" class="order-2 lg:order-1 h-[480px] overflow-hidden">
+                <img src={s.img} alt={s.alt} class="w-full h-full object-cover">
+              </div>
+              <div data-aos="fade-left" class="order-1 lg:order-2">
+                <p class="text-xs font-medium tracking-[0.3em] uppercase text-[#C9B98A] mb-4">{s.num}</p>
+                <h2 class="text-2xl md:text-3xl font-light text-gray-900 mb-6 leading-snug">
+                  {s.title}<br><span class="font-normal">{s.subtitle}</span>
+                </h2>
+                <p class="text-sm font-light text-gray-500 leading-relaxed mb-4">{s.p1}</p>
+                <p class="text-sm font-light text-gray-500 leading-relaxed mb-10">{s.p2}</p>
+                <a href="/contatti" class="inline-block border border-gray-900 text-gray-900 text-xs font-medium tracking-widest uppercase px-8 py-4 hover:bg-gray-900 hover:text-white transition-all duration-300">
+                  Richiedi preventivo
+                </a>
+              </div>
+            </>
+          ) : (
+            <>
+              <div data-aos="fade-right">
+                <p class="text-xs font-medium tracking-[0.3em] uppercase text-[#C9B98A] mb-4">{s.num}</p>
+                <h2 class="text-2xl md:text-3xl font-light text-gray-900 mb-6 leading-snug">
+                  {s.title}<br><span class="font-normal">{s.subtitle}</span>
+                </h2>
+                <p class="text-sm font-light text-gray-500 leading-relaxed mb-4">{s.p1}</p>
+                <p class="text-sm font-light text-gray-500 leading-relaxed mb-10">{s.p2}</p>
+                <a href="/contatti" class="inline-block border border-gray-900 text-gray-900 text-xs font-medium tracking-widest uppercase px-8 py-4 hover:bg-gray-900 hover:text-white transition-all duration-300">
+                  Richiedi preventivo
+                </a>
+              </div>
+              <div data-aos="fade-left" class="h-[480px] overflow-hidden">
+                <img src={s.img} alt={s.alt} class="w-full h-full object-cover">
+              </div>
+            </>
+          )}
+        </div>
+      </section>
+      {i < servizi.length - 1 && <div class="w-full h-px bg-gray-100 max-w-7xl mx-auto"></div>}
+    </>
+  ))}
+
+  <!-- CTA -->
+  <section class="w-full py-12 md:py-24 px-8 md:px-24 bg-[#F5EFE2]">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-2xl md:text-4xl font-light text-[#0D0D0D] leading-snug mb-8">
+        Non trovi il servizio che cerchi?
+      </h2>
+      <p class="text-sm font-light text-[#0D0D0D]/70 mb-10">
+        Contattaci direttamente — valutiamo ogni tipo di intervento infrastrutturale.
+      </p>
+      <a href="/contatti" class="inline-block bg-[#B89B5E] text-white text-xs font-medium tracking-widest uppercase px-10 py-5 hover:bg-[#a98c52] transition-all duration-300">
+        Parliamo del tuo progetto
+      </a>
+    </div>
+  </section>
+
+</Layout>

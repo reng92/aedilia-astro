@@ -1,0 +1,134 @@
+---
+import Layout from '../layouts/Layout.astro';
+import sito from '../data/sito.json';
+
+const lastUpdate = '29/04/2026';
+---
+
+<Layout
+  title="Cookie Policy"
+  description="Informativa sui cookie ai sensi del Regolamento UE 2016/679 (GDPR). C.& D. Aedilia Società Cooperativa."
+>
+
+  <section class="w-full pt-40 pb-20 px-8 md:px-24 bg-white border-b border-gray-100">
+    <div class="max-w-7xl mx-auto">
+      <div class="w-16 h-px bg-[#C9B98A] mb-6"></div>
+      <p class="text-xs font-medium tracking-[0.3em] uppercase text-gray-400 mb-4">Legale</p>
+      <h1 class="text-4xl md:text-5xl font-light text-gray-900 leading-tight">Cookie Policy</h1>
+    </div>
+  </section>
+
+  <section class="w-full py-24 px-8 md:px-24 bg-white">
+    <div class="max-w-3xl mx-auto">
+
+      <p class="text-xs font-light text-gray-400 mb-12">
+        Ultimo aggiornamento: {lastUpdate} — Redatta ai sensi del Regolamento UE 2016/679 (GDPR), del D.Lgs. 196/2003 come modificato dal D.Lgs. 101/2018 e del Provvedimento del Garante per la protezione dei dati personali dell'8 gennaio 2015.
+      </p>
+
+      <h2 class="text-base font-medium text-gray-900 tracking-wide mb-4">1. Titolare del trattamento</h2>
+      <p class="text-sm font-light text-gray-500 leading-relaxed mb-10">
+        {sito.ragioneSociale}<br>
+        {sito.indirizzo} - {sito.cap} {sito.localita} ({sito.provincia})<br>
+        P.IVA {sito.piva} — REA {sito.rea}<br>
+        Email: <a href={`mailto:${sito.email}`} class="text-gray-700 underline hover:text-[#C9B98A] transition-colors">{sito.email}</a><br>
+        PEC: <a href={`mailto:${sito.pec}`} class="text-gray-700 underline hover:text-[#C9B98A] transition-colors">{sito.pec}</a>
+      </p>
+
+      <h2 class="text-base font-medium text-gray-900 tracking-wide mb-4">2. Cosa sono i cookie</h2>
+      <p class="text-sm font-light text-gray-500 leading-relaxed mb-10">
+        I cookie sono piccoli file di testo che i siti web visitati dall'utente inviano al suo terminale, dove vengono memorizzati per essere ritrasmessi agli stessi siti alla visita successiva.
+      </p>
+
+      <h2 class="text-base font-medium text-gray-900 tracking-wide mb-4">3. Tipologie di cookie utilizzati</h2>
+
+      <p class="text-sm font-medium text-gray-700 mb-3">3.1 Cookie tecnici necessari</p>
+      <p class="text-sm font-light text-gray-500 leading-relaxed mb-4">
+        Strettamente necessari al funzionamento del sito. Non richiedono consenso. Non è possibile disattivarli tramite il banner.
+      </p>
+      <div class="overflow-x-auto mb-10">
+        <table class="w-full text-xs font-light text-gray-500 border border-gray-100">
+          <thead>
+            <tr class="bg-[#F8F6F1]">
+              <th class="text-left px-4 py-3 font-medium text-gray-700 border-b border-gray-100">Nome</th>
+              <th class="text-left px-4 py-3 font-medium text-gray-700 border-b border-gray-100">Fornitore</th>
+              <th class="text-left px-4 py-3 font-medium text-gray-700 border-b border-gray-100">Finalità</th>
+              <th class="text-left px-4 py-3 font-medium text-gray-700 border-b border-gray-100">Durata</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-gray-50">
+              <td class="px-4 py-3 font-mono">cc_cookie</td>
+              <td class="px-4 py-3">aediliacostruzioni.it</td>
+              <td class="px-4 py-3">Memorizza le preferenze cookie dell'utente</td>
+              <td class="px-4 py-3">182 giorni</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="text-sm font-medium text-gray-700 mb-3">3.2 Cookie analitici di terze parti</p>
+      <p class="text-sm font-light text-gray-500 leading-relaxed mb-4">
+        Utilizzati per analizzare il comportamento degli utenti in forma aggregata e anonimizzata. Attivati <strong class="font-medium">solo previo consenso esplicito</strong> tramite il banner cookie.
+      </p>
+      <div class="overflow-x-auto mb-10">
+        <table class="w-full text-xs font-light text-gray-500 border border-gray-100">
+          <thead>
+            <tr class="bg-[#F8F6F1]">
+              <th class="text-left px-4 py-3 font-medium text-gray-700 border-b border-gray-100">Nome</th>
+              <th class="text-left px-4 py-3 font-medium text-gray-700 border-b border-gray-100">Fornitore</th>
+              <th class="text-left px-4 py-3 font-medium text-gray-700 border-b border-gray-100">Finalità</th>
+              <th class="text-left px-4 py-3 font-medium text-gray-700 border-b border-gray-100">Durata</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-gray-50"><td class="px-4 py-3 font-mono">_ga</td><td class="px-4 py-3">Google Analytics</td><td class="px-4 py-3">Distingue gli utenti unici</td><td class="px-4 py-3">2 anni</td></tr>
+            <tr class="border-b border-gray-50"><td class="px-4 py-3 font-mono">_ga_*</td><td class="px-4 py-3">Google Analytics 4</td><td class="px-4 py-3">Mantiene lo stato della sessione GA4</td><td class="px-4 py-3">2 anni</td></tr>
+            <tr class="border-b border-gray-50"><td class="px-4 py-3 font-mono">_gid</td><td class="px-4 py-3">Google Analytics</td><td class="px-4 py-3">Distingue gli utenti — aggiornato ogni sessione</td><td class="px-4 py-3">24 ore</td></tr>
+            <tr><td class="px-4 py-3 font-mono">_gat</td><td class="px-4 py-3">Google Analytics</td><td class="px-4 py-3">Limita la frequenza delle richieste a GA</td><td class="px-4 py-3">1 minuto</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="text-base font-medium text-gray-900 tracking-wide mb-4">4. Base giuridica e consenso</h2>
+      <p class="text-sm font-light text-gray-500 leading-relaxed mb-10">
+        I cookie tecnici non richiedono consenso. I cookie analitici sono installati esclusivamente previo consenso esplicito dell'utente, espresso tramite il banner al primo accesso.
+        Il consenso è liberamente revocabile cliccando su
+        <button onclick="openCookiePreferences(event)" class="underline text-gray-700 hover:text-[#C9B98A] transition-colors cursor-pointer bg-transparent border-0 p-0 text-sm font-light">
+          Gestisci preferenze cookie
+        </button>.
+      </p>
+
+      <h2 class="text-base font-medium text-gray-900 tracking-wide mb-4">5. Come disabilitare i cookie dal browser</h2>
+      <ul class="list-disc list-inside text-sm font-light text-gray-500 leading-relaxed mb-10 space-y-2">
+        <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener" class="underline hover:text-[#C9B98A] transition-colors">Google Chrome</a></li>
+        <li><a href="https://support.mozilla.org/it/kb/protezione-antitracciamento-avanzata-firefox" target="_blank" rel="noopener" class="underline hover:text-[#C9B98A] transition-colors">Mozilla Firefox</a></li>
+        <li><a href="https://support.apple.com/it-it/guide/safari/sfri11471/mac" target="_blank" rel="noopener" class="underline hover:text-[#C9B98A] transition-colors">Apple Safari</a></li>
+        <li><a href="https://support.microsoft.com/it-it/microsoft-edge/eliminare-i-cookie-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener" class="underline hover:text-[#C9B98A] transition-colors">Microsoft Edge</a></li>
+      </ul>
+
+      <h2 class="text-base font-medium text-gray-900 tracking-wide mb-4">6. Trasferimento dati extra-UE</h2>
+      <p class="text-sm font-light text-gray-500 leading-relaxed mb-10">
+        I cookie di Google Analytics comportano il trasferimento di dati negli Stati Uniti sulla base delle Clausole Contrattuali Standard e del Data Privacy Framework EU-USA.
+      </p>
+
+      <h2 class="text-base font-medium text-gray-900 tracking-wide mb-4">7. Modifiche alla Cookie Policy</h2>
+      <p class="text-sm font-light text-gray-500 leading-relaxed mb-10">
+        Il Titolare si riserva il diritto di modificare la presente Cookie Policy in qualsiasi momento. Le modifiche saranno pubblicate su questa pagina con aggiornamento della data in calce.
+      </p>
+
+      <div class="mt-16 pt-10 border-t border-gray-100 flex flex-col gap-4">
+        <p class="text-xs font-light text-gray-400">
+          Informativa redatta ai sensi del Reg. UE 2016/679 (GDPR), D.Lgs. 196/2003 come mod. da D.Lgs. 101/2018, Provvedimento Garante 8 gennaio 2015 e linee guida EDPB.
+        </p>
+        <div class="flex gap-6">
+          <a href="/privacy-policy" class="text-xs font-light text-gray-400 underline hover:text-[#C9B98A] transition-colors">Privacy Policy</a>
+          <button onclick="openCookiePreferences(event)" class="text-xs font-light text-gray-400 underline hover:text-[#C9B98A] transition-colors cursor-pointer bg-transparent border-0 p-0">
+            Gestisci preferenze cookie
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</Layout>

@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { overflow-x: hidden; max-width: 100%; }
+
+/* NOISE TEXTURE */
+.noise::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 180px;
+  pointer-events: none;
+  opacity: 0.45;
+  mix-blend-mode: overlay;
+  z-index: 1;
+}
+
+/* PORTFOLIO CARD */
+.portfolio-card {
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+.portfolio-card img {
+  transition: transform 0.6s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.portfolio-overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%);
+  padding: 2rem 1.5rem 1.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: none;
+}
+.portfolio-overlay p {
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* MAGNETIC */
+.magnetic { position: relative; display: inline-block; }
+
+/* CUSTOM CURSOR — solo desktop */
+@media (pointer: fine) {
+  body { cursor: none; }
+  a, button { cursor: none; }
+}
+@media (pointer: coarse) {
+  body { cursor: auto !important; }
+}
+
+/* HERO ANIMATIONS */
+.hero-line {
+  width: 0;
+  height: 2px;
+  background: #C9B98A;
+  animation: expandLine 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+}
+@keyframes expandLine {
+  from { width: 0; }
+  to   { width: 4rem; }
+}
+.hero-section {
+  opacity: 0;
+  animation: heroFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+}
+@keyframes heroFadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* TICKER */
+.ticker-track {
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+/* PROGRESS BAR */
+#progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  background: #C9B98A;
+  z-index: 9999;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+/* REVEAL ANIMATION */
+[data-aos] { pointer-events: none; }
+[data-aos].aos-animate { pointer-events: auto; }
+
+/* SERVICES SLIDER DESKTOP */
+@media (min-width: 1024px) {
+  .services-horizontal { overflow: hidden; }
+  .services-track { will-change: transform; display: flex; flex-wrap: nowrap; }
+}
+
+/* SERVICES SLIDER MOBILE */
+@media (max-width: 1023px) {
+  .services-horizontal {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 0;
+  }
+  .services-horizontal::-webkit-scrollbar { display: none; }
+  .services-track {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    width: max-content !important;
+    gap: 1rem !important;
+    padding: 2rem 1.5rem !important;
+  }
+  .services-track > div {
+    width: 78vw !important;
+    max-width: 320px !important;
+    flex-shrink: 0 !important;
+    scroll-snap-align: start;
+  }
+}
+
+/* MOBILE FIXES */
+@media (max-width: 768px) {
+  section { overflow-x: hidden; }
+  .portfolio-card { height: 220px !important; }
+  nav { height: auto; min-height: 64px; }
+  .hero-section .flex.gap-4 { margin-bottom: 2rem !important; }
+  .chi-siamo-img { height: 280px !important; }
+}
+
+/* NAV SCROLLED */
+.nav-scrolled svg path, .nav-scrolled svg text { stroke: white; fill: white; }
+.nav-scrolled svg text { stroke: none; fill: white; }
+
+/* IMG FALLBACK */
+img.aedilia-img {
+  background: linear-gradient(135deg, #111 0%, #1c1c1c 50%, #111 100%);
+  background-size: 400% 400%;
+}
+img.aedilia-img[data-loaded="false"] { filter: brightness(0.3) contrast(1.2); }

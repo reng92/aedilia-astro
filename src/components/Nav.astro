@@ -1,0 +1,33 @@
+---
+// Nav - Alpine.js handles mobile menu
+---
+<nav class="fixed top-0 left-0 right-0 w-full z-50 bg-white border-b border-gray-100" x-data="{ open: false }">
+  <div class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
+    <div class="hidden md:flex items-center gap-10">
+      <a href="/chi-siamo" class="text-xs font-medium tracking-widest uppercase text-gray-600 hover:text-black transition">Chi siamo</a>
+      <a href="/servizi" class="text-xs font-medium tracking-widest uppercase text-gray-600 hover:text-black transition">Servizi</a>
+    </div>
+    <a href="/" class="flex items-center">
+      <img src="/images/logo_aedilia_costruzioni.svg"
+           alt="Aedilia Costruzioni"
+           data-no-fallback="true"
+           style="height: 40px; width: auto; display: block;">
+    </a>
+    <div class="hidden md:flex items-center gap-10">
+      <a href="/portfolio" class="text-xs font-medium tracking-widest uppercase text-gray-600 hover:text-black transition">Portfolio</a>
+      <a href="/contatti" class="text-xs font-medium tracking-widest uppercase text-gray-600 hover:text-black transition">Contatti</a>
+    </div>
+    <button class="md:hidden text-gray-900" @click="open = !open" aria-label="Menu">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path x-show="!open" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
+        <path x-show="open" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+  <div x-show="open" x-transition class="md:hidden bg-white z-50 relative shadow-lg border-t border-gray-100 px-6 py-6 flex flex-col gap-6">
+    <a href="/chi-siamo" class="text-sm font-medium tracking-widest uppercase text-gray-600">Chi siamo</a>
+    <a href="/servizi" class="text-sm font-medium tracking-widest uppercase text-gray-600">Servizi</a>
+    <a href="/portfolio" class="text-sm font-medium tracking-widest uppercase text-gray-600">Portfolio</a>
+    <a href="/contatti" class="text-sm font-medium tracking-widest uppercase text-gray-600">Contatti</a>
+  </div>
+</nav>

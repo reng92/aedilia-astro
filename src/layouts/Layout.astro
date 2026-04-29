@@ -1,0 +1,291 @@
+---
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import sito from '../data/sito.json';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = 'Pavimentazioni in asfalto, infrastrutture TLC, acquedotto, fognature, segnaletica e manutenzione strade in Campania.',
+} = Astro.props;
+
+const fullTitle = `${title} — Aedilia Costruzioni`;
+const canonicalUrl = `https://www.aediliacostruzioni.it${Astro.url.pathname}`;
+const ogImage = 'https://www.aediliacostruzioni.it/images/og-image.jpg';
+const ga4 = sito.ga4;
+---
+
+<!DOCTYPE html>
+<html lang="it" class="overflow-x-hidden">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+  <!-- GA4 consent default (before gtag loads) -->
+  <script define:vars={{ ga4 }}>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'analytics_storage': 'denied',
+      'ad_storage': 'denied',
+      'wait_for_update': 2000
+    });
+    gtag('js', new Date());
+    gtag('config', ga4, { 'send_page_view': false });
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5MJRGWQMS4"></script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
+  <link rel="shortcut icon" href="/images/favicon.png">
+  <link rel="apple-touch-icon" href="/images/favicon.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- SEO -->
+  <title>{fullTitle}</title>
+  <meta name="description" content={description}>
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="C.& D. Aedilia Società Cooperativa">
+  <meta name="geo.region" content="IT-CE">
+  <meta name="geo.placename" content="Macerata Campania">
+  <meta name="geo.position" content="41.0544;14.2514">
+  <meta name="ICBM" content="41.0544, 14.2514">
+  <link rel="canonical" href={canonicalUrl}>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Aedilia Costruzioni">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content={fullTitle}>
+  <meta property="og:description" content={description}>
+  <meta property="og:url" content={canonicalUrl}>
+  <meta property="og:image" content={ogImage}>
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Aedilia Costruzioni — Infrastrutture stradali Campania">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content={fullTitle}>
+  <meta name="twitter:description" content={description}>
+  <meta name="twitter:image" content={ogImage}>
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "GeneralContractor",
+    "name": "C.& D. Aedilia Società Cooperativa",
+    "alternateName": "Aedilia Costruzioni",
+    "url": "https://www.aediliacostruzioni.it",
+    "logo": "https://www.aediliacostruzioni.it/images/logo_aedilia_costruzioni.svg",
+    "image": "https://www.aediliacostruzioni.it/images/og-image.jpg",
+    "description": "Pavimentazioni in asfalto, infrastrutture TLC, acquedotto, fognature, segnaletica stradale e manutenzione strade nelle province di Caserta e Napoli.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Via Vittorio Alfieri 24",
+      "addressLocality": "Macerata Campania",
+      "addressRegion": "CE",
+      "postalCode": "81047",
+      "addressCountry": "IT"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 41.0544, "longitude": 14.2514 },
+    "telephone": "+393270294375",
+    "email": "info@aediliacostruzioni.it",
+    "vatID": "IT03828350615",
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "Provincia di Caserta" },
+      { "@type": "AdministrativeArea", "name": "Provincia di Napoli" },
+      { "@type": "AdministrativeArea", "name": "Campania" }
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Servizi",
+      "itemListElement": [
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Pavimentazioni in asfalto"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Infrastrutture TLC"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Acquedotto e fognature"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Arredo urbano"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Segnaletica non luminosa"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Manutenzione strade"}}
+      ]
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+393270294375",
+      "contactType": "customer service",
+      "availableLanguage": "Italian"
+    }
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
+
+  <!-- CookieConsent CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.css">
+
+  <!-- AOS CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+  <style>
+    :root {
+      --cc-bg: #ffffff; --cc-text: #1a1a1a;
+      --cc-primary-color: #0D0D0D; --cc-secondary-color: #555555;
+      --cc-btn-primary-bg: #C9B98A; --cc-btn-primary-color: #0D0D0D;
+      --cc-btn-primary-hover-bg: #0D0D0D; --cc-btn-primary-hover-color: #ffffff;
+      --cc-btn-secondary-bg: #f4f4f4; --cc-btn-secondary-color: #0D0D0D;
+      --cc-btn-secondary-hover-bg: #e8e8e8;
+      --cc-separator-border-color: #e8e4dc;
+      --cc-toggle-on-bg: #C9B98A; --cc-toggle-off-bg: #d0d0d0;
+      --cc-cookie-category-block-bg: #F8F6F1;
+      --cc-cookie-category-block-border: #e8e4dc;
+      --cc-cookie-category-block-hover-bg: #f0ece3;
+      --cc-overlay-bg: rgba(0,0,0,0.5);
+      --cc-modal-border-radius: 0px; --cc-btn-border-radius: 0px;
+      --nav-height: 72px;
+    }
+    nav, header { height: var(--nav-height); }
+  </style>
+</head>
+<body class="font-[Roboto] overflow-x-hidden">
+
+  <!-- Page transition overlay -->
+  <div id="page-transition" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#1C1C1C;z-index:9999;pointer-events:none;opacity:0;"></div>
+  <div id="progress-bar"></div>
+
+  <Nav />
+  <div class="h-20"></div>
+  <slot />
+  <Footer />
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Alpine.js -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <!-- Main JS -->
+  <script src="/js/main.js" is:inline></script>
+
+  <script>
+    // AOS init
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof AOS !== 'undefined') {
+        AOS.init({ duration: 800, easing: 'cubic-bezier(0.16, 1, 0.3, 1)', once: true, offset: 60 });
+      }
+    });
+
+    // Progress bar
+    window.addEventListener('scroll', () => {
+      const p = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+      const bar = document.getElementById('progress-bar');
+      if (bar) bar.style.width = p + '%';
+    });
+
+    // Img fallback
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('img:not([data-no-fallback])').forEach(img => {
+        img.classList.add('aedilia-img');
+        if (!img.complete || img.naturalWidth === 0) img.setAttribute('data-loaded', 'false');
+        img.addEventListener('error', function() {
+          this.setAttribute('data-loaded', 'false');
+          this.style.minHeight = '320px';
+          this.style.display = 'block';
+          this.style.background = 'linear-gradient(160deg, #111 0%, #222 40%, #C9B98A18 100%)';
+        });
+        img.addEventListener('load', function() { this.setAttribute('data-loaded', 'true'); });
+      });
+    });
+  </script>
+
+  <!-- CookieConsent -->
+  <script type="module">
+    import 'https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.umd.js';
+    window.CookieConsent = CookieConsent;
+    CookieConsent.run({
+      guiOptions: {
+        consentModal: { layout: 'bar', position: 'bottom', equalWeightButtons: false, flipButtons: false },
+        preferencesModal: { layout: 'box', position: 'right', equalWeightButtons: true, flipButtons: false }
+      },
+      categories: {
+        necessary: { enabled: true, readOnly: true },
+        analytics: {
+          enabled: false, readOnly: false,
+          autoClear: { cookies: [{ name: /^_ga/ }, { name: '_gid' }] }
+        }
+      },
+      language: {
+        default: 'it', autoDetect: 'browser',
+        translations: {
+          it: {
+            consentModal: {
+              title: 'Questo sito utilizza cookie',
+              description: 'Utilizziamo cookie tecnici necessari al funzionamento del sito e, previo consenso, cookie analitici per migliorare la tua esperienza.',
+              acceptAllBtn: 'Accetta tutti',
+              acceptNecessaryBtn: 'Solo necessari',
+              showPreferencesBtn: 'Gestisci preferenze',
+              footer: '<a href="/privacy-policy">Privacy Policy</a> · <a href="/cookie-policy">Cookie Policy</a>'
+            },
+            preferencesModal: {
+              title: 'Preferenze cookie',
+              acceptAllBtn: 'Accetta tutti',
+              acceptNecessaryBtn: 'Solo necessari',
+              savePreferencesBtn: 'Salva preferenze',
+              closeIconLabel: 'Chiudi',
+              sections: [
+                { title: 'Utilizzo dei cookie', description: 'Informativa ai sensi del Garante Privacy italiano e del GDPR UE 2016/679.' },
+                { title: 'Cookie tecnici necessari <span class="pm__badge">Sempre attivi</span>', description: 'Strettamente necessari al funzionamento del sito.', linkedCategory: 'necessary' },
+                { title: 'Cookie analitici', description: 'Utilizzati per analizzare il traffico. Attivati solo con consenso esplicito.', linkedCategory: 'analytics' },
+                { title: 'Ulteriori informazioni', description: 'Scrivi a <a href="mailto:info@aediliacostruzioni.it">info@aediliacostruzioni.it</a> o consulta la <a href="/privacy-policy">Privacy Policy</a>.' }
+              ]
+            }
+          }
+        }
+      }
+    });
+
+    window.addEventListener('cc:onConsent', () => {
+      if (CookieConsent.acceptedCategory('analytics')) {
+        gtag('consent', 'update', { 'analytics_storage': 'granted' });
+        gtag('event', 'page_view', { 'send_to': 'G-5MJRGWQMS4' });
+      }
+    });
+    window.addEventListener('cc:onChange', () => {
+      if (CookieConsent.acceptedCategory('analytics')) {
+        gtag('consent', 'update', { 'analytics_storage': 'granted' });
+        gtag('event', 'page_view', { 'send_to': 'G-5MJRGWQMS4' });
+      } else {
+        gtag('consent', 'update', { 'analytics_storage': 'denied' });
+      }
+    });
+  </script>
+
+  <script>
+    function openCookiePreferences(event) {
+      if (event) event.preventDefault();
+      if (window.CookieConsent?.showPreferences) window.CookieConsent.showPreferences();
+      return false;
+    }
+
+  </script>
+
+</body>
+</html>
