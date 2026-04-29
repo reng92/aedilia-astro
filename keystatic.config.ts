@@ -5,8 +5,7 @@ export default config({
   storage: process.env.KEYSTATIC_STORAGE_KIND === 'cloud'
     ? {
         kind: 'cloud',
-        // Cambia con il tuo team/progetto da keystatic.cloud
-        project: process.env.KEYSTATIC_CLOUD_PROJECT as `${string}/${string}`,
+        project: (process.env.KEYSTATIC_CLOUD_PROJECT ?? 'tracceweb/aedilia-astro') as `${string}/${string}`,
       }
     : { kind: 'local' },
 
