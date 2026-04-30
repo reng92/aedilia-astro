@@ -62,7 +62,7 @@ const itemsJson = JSON.stringify(sorted.map(i => ({
           >
             <a :href="item.image" class="glightbox" data-gallery="aedilia" :data-description="item.description">
               <img :src="item.image" :alt="item.title"
-                   class="w-full object-cover group-hover:scale-105 transition-transform duration-700">
+                   class="w-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy">
               <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                 <p class="text-white text-xs font-medium tracking-widest uppercase" x-text="item.title"></p>
                 <p class="text-[#C9B98A] text-xs font-light mt-1" x-text="item.location"></p>
