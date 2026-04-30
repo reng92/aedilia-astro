@@ -118,20 +118,26 @@ const previewItems = allPortfolio.slice(0, 4);
   <!-- SERVIZI ORIZZONTALI -->
   <section class="w-full bg-white">
     <!-- MOBILE -->
-    <div class="md:hidden w-full px-6 py-12 flex flex-col gap-4">
+    <div class="md:hidden w-full px-6 py-12 flex flex-col gap-6">
       {[
-        ['01','Pavimentazioni in asfalto','Asfalto normale e stampato per strade pubbliche, piazzali privati e aree residenziali.'],
-        ['02','Infrastrutture TLC','Cavidotti, fibre ottiche e infrastrutture per telecomunicazioni.'],
-        ['03','Acquedotto e fognature','Reti idriche, fognature e cavidotti su nuove costruzioni e infrastrutture esistenti.'],
-        ['04','Arredo urbano','Installazione e manutenzione arredi urbani, aiuole e aree pedonali.'],
-        ['05','Segnaletica non luminosa','Strisce pedonali, dossi artificiali, cartelli stradali e delimitazioni cantiere.'],
-        ['06','Manutenzione strade','Manutenzione ordinaria e straordinaria su strade comunali e private.'],
-      ].map(([n, t, d]) => (
-        <div class="bg-[#F8F6F1] p-8 flex flex-col gap-4">
-          <span class="text-2xl font-light text-[#C9B98A]">{n}</span>
-          <h3 class="text-sm font-medium text-gray-900">{t}</h3>
-          <p class="text-xs font-light text-gray-500 leading-relaxed">{d}</p>
-        </div>
+        ['01','Pavimentazioni in asfalto','/images/gallery-01.jpg','asfalto','Asfalto normale e stampato per strade pubbliche, piazzali privati e aree residenziali.'],
+        ['02','Infrastrutture TLC','/images/fibra.png','tlc','Cavidotti, fibre ottiche e infrastrutture per telecomunicazioni.'],
+        ['03','Acquedotto e fognature','/images/reteidrica.png','acquedotto','Reti idriche, fognature e cavidotti su nuove costruzioni e infrastrutture esistenti.'],
+        ['04','Arredo urbano','/images/panchine.png','arredo','Installazione e manutenzione arredi urbani, aiuole e aree pedonali.'],
+        ['05','Segnaletica non luminosa','/images/gallery-05.jpg','segnaletica','Strisce pedonali, dossi artificiali, cartelli stradali e delimitazioni cantiere.'],
+        ['06','Manutenzione strade','/images/gallery-06.jpg','strade','Manutenzione ordinaria e straordinaria su strade comunali e private.'],
+      ].map(([n, t, img, id, d]) => (
+        <a href={`/servizi#${id}`} class="bg-[#F8F6F1] flex flex-col overflow-hidden group">
+          <div class="h-[200px] overflow-hidden">
+            <img src={img} alt={t} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="p-6 flex flex-col gap-3">
+            <span class="text-xl font-light text-[#C9B98A]">{n}</span>
+            <h3 class="text-sm font-medium text-gray-900">{t}</h3>
+            <p class="text-xs font-light text-gray-500 leading-relaxed">{d}</p>
+            <span class="text-xs font-medium tracking-widest uppercase text-gray-400 group-hover:text-gray-900 transition mt-1">Scopri →</span>
+          </div>
+        </a>
       ))}
     </div>
 
@@ -139,18 +145,24 @@ const previewItems = allPortfolio.slice(0, 4);
     <div class="hidden md:block services-horizontal overflow-hidden">
       <div class="services-track flex gap-6 px-24 py-24 w-max items-stretch">
         {[
-          ['01','Pavimentazioni in asfalto','Asfalto normale e stampato per strade pubbliche, piazzali privati e aree residenziali. Posa e manutenzione.'],
-          ['02','Infrastrutture TLC','Realizzazione di cavidotti, posa di fibre ottiche e infrastrutture per telecomunicazioni su territorio urbano ed extraurbano.'],
-          ['03','Acquedotto e fognature','Posa di reti idriche, fognature e cavidotti. Interventi su infrastrutture esistenti e nuove costruzioni.'],
-          ['04','Arredo urbano','Installazione e manutenzione di arredi urbani, aiuole, pavimentazioni decorative e aree pedonali.'],
-          ['05','Segnaletica non luminosa','Segnaletica orizzontale e verticale: strisce pedonali, cartelli stradali, dossi artificiali e delimitazioni di cantiere.'],
-          ['06','Manutenzione strade','Interventi di manutenzione ordinaria e straordinaria su strade comunali e private. Rattoppi, rifacimenti e drenaggi.'],
-        ].map(([n, t, d]) => (
-          <div class="w-[380px] shrink-0 bg-[#F8F6F1] p-10 flex flex-col gap-6">
-            <span class="text-3xl font-light text-[#C9B98A]">{n}</span>
-            <h3 class="text-base font-medium text-gray-900">{t}</h3>
-            <p class="text-sm font-light text-gray-500 leading-relaxed">{d}</p>
-          </div>
+          ['01','Pavimentazioni in asfalto','/images/gallery-01.jpg','asfalto','Asfalto normale e stampato per strade pubbliche, piazzali privati e aree residenziali. Posa e manutenzione.'],
+          ['02','Infrastrutture TLC','/images/fibra.png','tlc','Realizzazione di cavidotti, posa di fibre ottiche e infrastrutture per telecomunicazioni su territorio urbano ed extraurbano.'],
+          ['03','Acquedotto e fognature','/images/reteidrica.png','acquedotto','Posa di reti idriche, fognature e cavidotti. Interventi su infrastrutture esistenti e nuove costruzioni.'],
+          ['04','Arredo urbano','/images/panchine.png','arredo','Installazione e manutenzione di arredi urbani, aiuole, pavimentazioni decorative e aree pedonali.'],
+          ['05','Segnaletica non luminosa','/images/gallery-05.jpg','segnaletica','Segnaletica orizzontale e verticale: strisce pedonali, cartelli stradali, dossi artificiali e delimitazioni di cantiere.'],
+          ['06','Manutenzione strade','/images/gallery-06.jpg','strade','Interventi di manutenzione ordinaria e straordinaria su strade comunali e private. Rattoppi, rifacimenti e drenaggi.'],
+        ].map(([n, t, img, id, d]) => (
+          <a href={`/servizi#${id}`} class="w-[360px] shrink-0 bg-[#F8F6F1] flex flex-col overflow-hidden group">
+            <div class="h-[240px] overflow-hidden">
+              <img src={img} alt={t} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            </div>
+            <div class="p-8 flex flex-col gap-4 flex-1">
+              <span class="text-3xl font-light text-[#C9B98A]">{n}</span>
+              <h3 class="text-base font-medium text-gray-900">{t}</h3>
+              <p class="text-sm font-light text-gray-500 leading-relaxed">{d}</p>
+              <span class="text-xs font-medium tracking-widest uppercase text-gray-400 group-hover:text-gray-900 transition mt-auto">Scopri →</span>
+            </div>
+          </a>
         ))}
       </div>
     </div>
