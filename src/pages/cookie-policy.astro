@@ -93,7 +93,7 @@ const lastUpdate = '29/04/2026';
       <p class="text-sm font-light text-gray-500 leading-relaxed mb-10">
         I cookie tecnici non richiedono consenso. I cookie analitici sono installati esclusivamente previo consenso esplicito dell'utente, espresso tramite il banner al primo accesso.
         Il consenso è liberamente revocabile cliccando su
-        <button onclick="openCookiePreferences(event)" class="underline text-gray-700 hover:text-[#C9B98A] transition-colors cursor-pointer bg-transparent border-0 p-0 text-sm font-light">
+        <button data-cc="show-preferencesModal" class="underline text-gray-700 hover:text-[#C9B98A] transition-colors cursor-pointer bg-transparent border-0 p-0 text-sm font-light">
           Gestisci preferenze cookie
         </button>.
       </p>
@@ -122,7 +122,7 @@ const lastUpdate = '29/04/2026';
         </p>
         <div class="flex gap-6">
           <a href="/privacy-policy" class="text-xs font-light text-gray-400 underline hover:text-[#C9B98A] transition-colors">Privacy Policy</a>
-          <button onclick="openCookiePreferences(event)" class="text-xs font-light text-gray-400 underline hover:text-[#C9B98A] transition-colors cursor-pointer bg-transparent border-0 p-0">
+          <button data-cc="show-preferencesModal" class="text-xs font-light text-gray-400 underline hover:text-[#C9B98A] transition-colors cursor-pointer bg-transparent border-0 p-0">
             Gestisci preferenze cookie
           </button>
         </div>
