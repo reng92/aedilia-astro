@@ -4,6 +4,7 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 html, body { overflow-x: hidden; max-width: 100%; }
+body { background: #0D0D0D; }
 
 /* NOISE TEXTURE */
 .noise::after {
@@ -76,8 +77,8 @@ html, body { overflow-x: hidden; max-width: 100%; }
   animation: heroFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
 }
 @keyframes heroFadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 /* TICKER */
@@ -139,7 +140,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
 @media (max-width: 768px) {
   section { overflow-x: hidden; }
   .portfolio-card { height: 220px !important; }
-  nav { height: auto; min-height: 64px; }
+  nav { height: 64px; }
   .hero-section .flex.gap-4 { margin-bottom: 2rem !important; }
   .chi-siamo-img { height: 280px !important; }
 }
