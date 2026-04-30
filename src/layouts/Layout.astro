@@ -31,7 +31,6 @@ const ga4 = sito.ga4;
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 
   <!-- GA4 consent default (before gtag loads) -->
   <script define:vars={{ ga4 }}>
@@ -139,7 +138,7 @@ const ga4 = sito.ga4;
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.css">
 
   <!-- AOS CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
 
   <style>
     :root {
@@ -179,18 +178,21 @@ const ga4 = sito.ga4;
   <!-- Alpine.js -->
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-  <!-- AOS -->
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.min.js"></script>
-
   <!-- Main JS -->
   <script src="/js/main.js" is:inline></script>
 
   <script>
-    // AOS init
+    // AOS via IntersectionObserver (no CDN library needed)
     document.addEventListener('DOMContentLoaded', () => {
-      if (typeof AOS !== 'undefined') {
-        AOS.init({ duration: 800, easing: 'cubic-bezier(0.16, 1, 0.3, 1)', once: true, offset: 60 });
-      }
+      const aosObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('aos-animate');
+            aosObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+      document.querySelectorAll('[data-aos]').forEach(el => aosObserver.observe(el));
     });
 
     // Progress bar
