@@ -144,9 +144,17 @@ html, body { overflow-x: hidden; max-width: 100%; }
   .chi-siamo-img { height: 280px !important; }
 }
 
-/* NAV SCROLLED */
-.nav-scrolled svg path, .nav-scrolled svg text { stroke: white; fill: white; }
-.nav-scrolled svg text { stroke: none; fill: white; }
+/* NAV STATES */
+#main-nav { background: transparent; border-bottom: 1px solid transparent; }
+#main-nav.nav-scrolled { background: rgba(255,255,255,0.97); border-bottom-color: #f3f4f6; backdrop-filter: blur(8px); }
+#main-nav .nav-link { color: rgba(255,255,255,0.9); }
+#main-nav.nav-scrolled .nav-link { color: #4b5563; }
+#main-nav .nav-link:hover { color: white; }
+#main-nav.nav-scrolled .nav-link:hover { color: #000; }
+#main-nav .hamburger { color: white; }
+#main-nav.nav-scrolled .hamburger { color: #111827; }
+#main-nav img { filter: brightness(0) invert(1); transition: filter 0.3s ease; }
+#main-nav.nav-scrolled img { filter: none; }
 
 /* IMG FALLBACK */
 img.aedilia-img {

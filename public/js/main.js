@@ -41,7 +41,7 @@ window.addEventListener('load', () => {
 
 // CUSTOM CURSOR (desktop only)
 const isTouchDevice = ('ontouchstart' in window || navigator.maxTouchPoints > 0 || window.matchMedia('(pointer: coarse)').matches);
-if (!isTouchDevice && typeof gsap !== 'undefined') {
+if (!isTouchDevice) {
   const cursor = document.createElement('div');
   const cursorDot = document.createElement('div');
   cursor.style.cssText = `width:36px;height:36px;border:1px solid #C9B98A;border-radius:50%;position:fixed;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:width .3s ease,height .3s ease,border-color .3s ease,background .3s ease;mix-blend-mode:difference;`;
