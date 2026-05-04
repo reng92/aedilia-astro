@@ -1,0 +1,226 @@
+---
+import Layout from '../layouts/Layout.astro';
+import sito from '../data/sito.json';
+
+const dataValutazione = '01/05/2026';
+const dataDichiarazione = '01/05/2026';
+---
+
+<Layout
+  title="Dichiarazione di Accessibilità"
+  description={`Dichiarazione di accessibilità del sito web di ${sito.ragioneSociale} ai sensi della Direttiva UE 2019/882 (European Accessibility Act) e del D.Lgs. 82/2022.`}
+>
+
+  <section class="w-full pt-40 pb-20 px-8 md:px-24 bg-[#F5EFE2]">
+    <div class="max-w-7xl mx-auto">
+      <p class="text-xs font-medium tracking-[0.3em] uppercase text-[#5C4A18] mb-4">Accessibilità</p>
+      <h1 class="text-4xl md:text-5xl font-light text-[#0D0D0D] leading-tight">Dichiarazione di Accessibilità</h1>
+    </div>
+  </section>
+
+  <section class="w-full py-24 px-8 md:px-24 bg-white">
+    <div class="max-w-3xl mx-auto">
+
+      <p class="text-xs font-light text-gray-500 mb-12">Data della dichiarazione: {dataDichiarazione} — Ultimo riesame: {dataValutazione}</p>
+
+      <!-- IMPEGNO -->
+      <p class="text-sm font-light text-gray-600 leading-relaxed mb-10">
+        <strong class="font-medium text-gray-900">{sito.ragioneSociale}</strong> si impegna a garantire l'accessibilità
+        del proprio sito web conformemente alla <strong class="font-medium text-gray-900">Direttiva (UE) 2019/882</strong>
+        del Parlamento Europeo e del Consiglio (European Accessibility Act — EAA) e al
+        <strong class="font-medium text-gray-900">D.Lgs. 82/2022</strong> di recepimento nell'ordinamento italiano,
+        nonché alla <strong class="font-medium text-gray-900">Legge 4/2004</strong> (Legge Stanca) e al
+        <strong class="font-medium text-gray-900">D.Lgs. 106/2018</strong>.
+      </p>
+
+      <!-- AMBITO -->
+      <h2 class="text-base font-medium text-gray-900 tracking-wide mb-4">1. Ambito di applicazione</h2>
+      <p class="text-sm font-light text-gray-600 leading-relaxed mb-10">
+        La presente dichiarazione si applica al sito web:
+        <a href="https://aediliacostruzioni.it" class="text-gray-700 underline hover:text-[#5C4A18] transition-colors" target="_blank" rel="noopener">
+          https://aediliacostruzioni.it
+        </a>
+      </p>
+
+      <!-- STATO DI CONFORMITA' -->
+      <h2 class="text-base font-medium text-gray-900 tracking-wide mb-4">2. Stato di conformità</h2>
+      <div class="border-l-4 border-yellow-400 pl-6 py-1 mb-6">
+        <p class="text-sm font-medium text-gray-900 mb-2">Parzialmente conforme</p>
+        <p class="text-sm font-light text-gray-600 leading-relaxed">
+          Il sito è conforme ai criteri
+          <strong class="font-medium text-gray-900">WCAG 2.1 Livello A</strong> e
+          sostanzialmente conforme al <strong class="font-medium text-gray-900">Livello AA</strong>.
+          Alcuni criteri di <strong class="font-medium text-gray-900">Livello AAA</strong> non sono
+          soddisfatti e sono descritti nella sezione 4. È inoltre in corso una verifica manuale su
+          un criterio che non può essere accertato automaticamente (vedere sezione 4).
+        </p>
+      </div>
+      <p class="text-sm font-light text-gray-600 leading-relaxed mb-10">
+        Lo stato di conformità è determinato sulla base dei criteri della norma
+        <strong class="font-medium text-gray-900">EN 301 549 V3.2.1</strong> e delle
+        <strong class="font-medium text-gray-900">WCAG 2.1</strong>, verificati con strumento
+        automatico in data {dataValutazione}. La piena conformità sarà dichiarata solo a seguito
+        di verifica manuale completa e risoluzione di tutte le non conformità rilevate.
+      </p>
+
+      <!-- STANDARD DI RIFERIMENTO -->
+      <h2 class="text-base font-medium text-gray-900 tracking-wide mb-4">3. Standard e norme di riferimento</h2>
+      <ul class="text-sm font-light text-gray-600 leading-relaxed mb-10 space-y-2 list-disc list-inside">
+        <li>
+          <strong class="font-medium text-gray-900">WCAG 2.1 Livello AA</strong> — Web Content Accessibility Guidelines,
+          W3C Recommendation (5 giugno 2018)
+        </li>
+        <li>
+          <strong class="font-medium text-gray-900">EN 301 549 V3.2.1</strong> — Requisiti di accessibilità per prodotti
+          e servizi ICT (Norma europea armonizzata)
+        </li>
+        <li>
+          <strong class="font-medium text-gray-900">Direttiva (UE) 2019/882</strong> — European Accessibility Act (EAA)
+        </li>
+        <li>
+          <strong class="font-medium text-gray-900">D.Lgs. 82/2022</strong> — Recepimento italiano della Direttiva UE 2019/882
+        </li>
+        <li>
+          <strong class="font-medium text-gray-900">Legge 4/2004</strong> (Legge Stanca) — Accesso degli utenti con disabilità
+          agli strumenti informatici
+        </li>
+        <li>
+          <strong class="font-medium text-gray-900">D.Lgs. 106/2018</strong> — Attuazione della Direttiva (UE) 2016/2102
+        </li>
+      </ul>
+
+      <!-- CONTENUTI NON CONFORMI -->
+      <h2 class="text-base font-medium text-gray-900 tracking-wide mb-4">4. Contenuti non accessibili e non conformità note</h2>
+
+      <h3 class="text-sm font-medium text-gray-800 mb-3">4a. Non conformità al Livello AAA (WCAG 1.4.6 — Contrasto potenziato)</h3>
+      <p class="text-sm font-light text-gray-600 leading-relaxed mb-4">
+        Alcuni elementi di testo presentano un rapporto di contrasto compreso tra 4,5:1 e 7:1,
+        sufficiente per il Livello AA ma inferiore alla soglia di 7:1 richiesta dal Livello AAA.
+        In particolare:
+      </p>
+      <ul class="text-sm font-light text-gray-600 leading-relaxed mb-6 space-y-2 list-disc list-inside">
+        <li>Testi descrittivi di piccole dimensioni su sfondi chiari in alcune sezioni della homepage.</li>
+        <li>Etichette di navigazione e categorie su sfondi chiari.</li>
+      </ul>
+      <p class="text-sm font-light text-gray-600 leading-relaxed mb-8">
+        Questi elementi rispettano pienamente il Livello AA. La non conformità al Livello AAA è una
+        scelta tecnico-estetica adottata per preservare la leggibilità nel contesto del design
+        editoriale del sito. Il superamento completo del Livello AAA è previsto come obiettivo
+        evolutivo.
+      </p>
+
+      <h3 class="text-sm font-medium text-gray-800 mb-3">4b. Verifica manuale in corso (1 criterio)</h3>
+      <p class="text-sm font-light text-gray-600 leading-relaxed mb-10">
+        Un criterio di accessibilità richiede verifica manuale e non può essere accertato
+        esclusivamente con strumenti automatici. La verifica è programmata e sarà completata
+        entro 90 giorni dalla data della presente dichiarazione. L'esito sarà comunicato tramite
+        aggiornamento di questa pagina.
+      </p>
+
+      <!-- VALUTAZIONE -->
+      <h2 class="text-base font-medium text-gray-900 tracking-wide mb-4">5. Metodo di valutazione</h2>
+      <p class="text-sm font-light text-gray-600 leading-relaxed mb-4">
+        L'accessibilità del sito è stata valutata mediante:
+      </p>
+      <ul class="text-sm font-light text-gray-600 leading-relaxed mb-4 space-y-2 list-disc list-inside">
+        <li>
+          <strong class="font-medium text-gray-900">Autovalutazione</strong> effettuata dal responsabile tecnico
+        </li>
+        <li>
+          <strong class="font-medium text-gray-900">Test automatizzato</strong> con strumento
+          <em>Friendly Captcha Accessibility Check</em> (verifica WCAG A, AA, AAA ed EN 301 549)
+        </li>
+        <li>
+          <strong class="font-medium text-gray-900">Revisione manuale parziale</strong> dei principali
+          flussi di navigazione e dei contenuti interattivi (verifica completa in corso)
+        </li>
+      </ul>
+      <p class="text-sm font-light text-gray-600 leading-relaxed mb-10">
+        Data dell'ultima valutazione automatica: <strong class="font-medium text-gray-900">{dataValutazione}</strong>
+      </p>
+
+      <!-- COMPATIBILITA' -->
+      <h2 class="text-base font-medium text-gray-900 tracking-wide mb-4">6. Compatibilità con tecnologie assistive</h2>
+      <p class="text-sm font-light text-gray-600 leading-relaxed mb-4">
+        Il sito è progettato per essere compatibile con:
+      </p>
+      <ul class="text-sm font-light text-gray-600 leading-relaxed mb-10 space-y-2 list-disc list-inside">
+        <li>Screen reader (NVDA, JAWS, VoiceOver, TalkBack)</li>
+        <li>Navigazione solo da tastiera</li>
+        <li>Software di ingrandimento dello schermo</li>
+        <li>Modalità ad alto contrasto del browser e del sistema operativo</li>
+        <li>Dispositivi mobili con tecnologie assistive integrate (iOS e Android)</li>
+      </ul>
+
+      <!-- FEEDBACK -->
+      <h2 class="text-base font-medium text-gray-900 tracking-wide mb-4">7. Meccanismo di feedback e contatti</h2>
+      <p class="text-sm font-light text-gray-600 leading-relaxed mb-4">
+        Se riscontri problemi di accessibilità o difficoltà ad accedere a contenuti del sito,
+        contattaci. Risponderemo entro <strong class="font-medium text-gray-900">30 giorni</strong>
+        dalla ricezione della segnalazione.
+      </p>
+      <ul class="text-sm font-light text-gray-600 leading-relaxed mb-10 space-y-2">
+        <li>
+          <strong class="font-medium text-gray-900">Email:</strong>
+          <a href={`mailto:${sito.email}`} class="text-gray-700 underline hover:text-[#5C4A18] transition-colors">
+            {sito.email}
+          </a>
+        </li>
+        <li>
+          <strong class="font-medium text-gray-900">PEC:</strong>
+          <a href={`mailto:${sito.pec}`} class="text-gray-700 underline hover:text-[#5C4A18] transition-colors">
+            {sito.pec}
+          </a>
+        </li>
+        <li>
+          <strong class="font-medium text-gray-900">Telefono:</strong>
+          <a href={`tel:${sito.telefonoRaw}`} class="text-gray-700 underline hover:text-[#5C4A18] transition-colors">
+            {sito.telefono}
+          </a>
+        </li>
+        <li>
+          <strong class="font-medium text-gray-900">Indirizzo:</strong>
+          {sito.indirizzo}, {sito.localita} ({sito.provincia}), {sito.cap}
+        </li>
+      </ul>
+
+      <!-- RICORSO -->
+      <h2 class="text-base font-medium text-gray-900 tracking-wide mb-4">8. Procedura di ricorso</h2>
+      <p class="text-sm font-light text-gray-600 leading-relaxed mb-4">
+        Se la risposta ricevuta non è soddisfacente o non perviene entro 30 giorni, puoi
+        segnalare il problema all'autorità competente per la sorveglianza del mercato in materia
+        di accessibilità dei servizi digitali.
+      </p>
+      <p class="text-sm font-light text-gray-600 leading-relaxed mb-10">
+        In Italia, per i siti web di operatori economici privati soggetti al D.Lgs. 82/2022,
+        l'autorità di riferimento è l'
+        <strong class="font-medium text-gray-900">Agenzia per l'Italia Digitale (AgID)</strong>
+        — <a href="https://www.agid.gov.it" class="text-gray-700 underline hover:text-[#5C4A18] transition-colors" target="_blank" rel="noopener noreferrer">www.agid.gov.it</a>
+        — e il <strong class="font-medium text-gray-900">Ministero delle Imprese e del Made in Italy (MIMIT)</strong>
+        quale autorità di sorveglianza del mercato ai sensi del D.Lgs. 82/2022.
+      </p>
+
+      <!-- TITOLARE -->
+      <h2 class="text-base font-medium text-gray-900 tracking-wide mb-4">9. Responsabile dell'accessibilità</h2>
+      <p class="text-sm font-light text-gray-600 leading-relaxed mb-10">
+        {sito.ragioneSociale}<br>
+        {sito.indirizzo} — {sito.cap} {sito.localita} ({sito.provincia})<br>
+        P.IVA: {sito.piva} — REA: {sito.rea}<br>
+        Email: <a href={`mailto:${sito.email}`} class="text-gray-700 underline hover:text-[#5C4A18] transition-colors">{sito.email}</a><br>
+        PEC: <a href={`mailto:${sito.pec}`} class="text-gray-700 underline hover:text-[#5C4A18] transition-colors">{sito.pec}</a>
+      </p>
+
+      <div class="mt-16 pt-10 border-t border-gray-100">
+        <p class="text-xs font-light text-gray-500">
+          Dichiarazione redatta ai sensi della Direttiva (UE) 2019/882, del D.Lgs. 82/2022,
+          della Legge 4/2004, del D.Lgs. 106/2018 e della norma EN 301 549 V3.2.1.
+          Ultima valutazione automatica: {dataValutazione}.
+          La presente dichiarazione sarà aggiornata ad ogni revisione del sito o variazione
+          dello stato di conformità.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+</Layout>
